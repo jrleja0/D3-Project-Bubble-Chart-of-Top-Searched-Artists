@@ -1,0 +1,20 @@
+/*///
+ Main Components
+*////
+
+body {
+
+  /*///
+   MAIN (Footer) Styling
+  *////
+
+    .footer-text {
+      @extend .main-font;
+      background-color: $blue-bold-rgba8;
+      color: white;
+      font-size: 18px;
+      text-align: center;
+      margin-bottom: 0;
+    }
+
+  }
