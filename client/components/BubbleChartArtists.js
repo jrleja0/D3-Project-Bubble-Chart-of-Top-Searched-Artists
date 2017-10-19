@@ -14,7 +14,7 @@ class Main extends React.Component {
     return (
       <div>
         <p>Top 20 Artists</p>
-        <svg width="1000" height="1000" textAnchor="middle" />
+        <svg width="1200" height="1200" textAnchor="middle" />
       </div>
     );
   }
