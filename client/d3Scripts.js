@@ -1,13 +1,13 @@
 const d3 = require('d3');
 
 const makeChart = () => {
-  var svg = d3.select('svg'),
+  const svg = d3.select('svg'),
     width = +svg.attr('width'),
     height = +svg.attr('height');
 
-  var color = d3.scaleOrdinal(d3.schemeCategory20c);
+  const color = d3.scaleOrdinal(d3.schemeCategory20c);
 
-  var pack = d3.pack()
+  const pack = d3.pack()
     .size([width, height])
     .padding(1.5);
 
@@ -19,7 +19,7 @@ const makeChart = () => {
     function(error, artistsData) {
       if (error) throw error;
 
-      var root = d3.hierarchy({children: artistsData})  //  root.value = 20; each child node .value = 1;
+      const root = d3.hierarchy({children: artistsData})  //  root.value = 20; each child node .value = 1;
         .sum(data => (artistsData.length + 1) - data.rank)
         .each(node => {
           if (node.data.name) {
@@ -27,7 +27,7 @@ const makeChart = () => {
           }
         });
 
-      var nodes = svg.selectAll('.node')
+      const nodes = svg.selectAll('.node')
         .data(pack(root).leaves())
         .enter()
         .append('g')
