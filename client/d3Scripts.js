@@ -32,25 +32,25 @@ const makeChart = () => {
         .enter()
         .append('g')
         .attr('class', 'node')
-        .attr('transform', d => `translate( ${d.x}, ${d.y} )`);
+        .attr('transform', node => `translate( ${node.x}, ${node.y} )`);
 
       nodes.append('title')
-        .text(d => `#${d.data.rank}: ${d.id}`);
+        .text(node => `#${node.data.rank}: ${node.id}`);
 
       nodes.append('circle')
-        .attr('id', d => d.id)
-        .attr('r', d => d.r)
-        .style('fill', d => color(d.value));
+        .attr('id', node => node.id)
+        .attr('r', node => node.r)
+        .style('fill', node => color(node.value));
 
       nodes.append('clipPath')
-        .attr('id', d => 'clip-' + d.id)
+        .attr('id', node => 'clip-' + node.id)
         .append('use')
-        .attr('href', d => '#' + d.id);
+        .attr('href', node => '#' + node.id);
 
       nodes.append('text')
-        .attr('clip-path', d => `url(#clip- ${d.id} )`)
+        .attr('clip-path', node => `url(#clip- ${node.id} )`)
         .selectAll('tspan')
-        .data(d => d.id.split(' '))
+        .data(node => node.id.split(' '))
         .enter()
         .append('tspan')
         .attr('x', 0)
