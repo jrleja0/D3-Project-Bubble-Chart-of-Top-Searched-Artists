@@ -23,7 +23,7 @@ const makeChart = () => {
         .sum(data => (artistsData.length + 1) - data.rank)
         .each(node => {
           if (node.data.name) {
-            node.id = node.data.name;
+            node.id = node.data.name.split(' ').join('');
           }
         });
 
@@ -32,10 +32,10 @@ const makeChart = () => {
         .enter()
         .append('g')
         .attr('class', 'node')
-        .attr('transform', node => `translate( ${node.x}, ${node.y} )`);
+        .attr('transform', node => `translate(${node.x},${node.y})`);
 
       nodes.append('title')
-        .text(node => `#${node.data.rank}: ${node.id}`);
+        .text(node => `#${node.data.rank}: ${node.data.name}`);
 
       nodes.append('circle')
         .attr('id', node => node.id)
@@ -47,10 +47,18 @@ const makeChart = () => {
         .append('use')
         .attr('href', node => '#' + node.id);
 
+      nodes.append('image')
+        .attr('x', node => -(node.r + 10))
+        .attr('y', node => -(node.r + 10))
+        .attr('width', node => (node.r * 2 + 20) + 'px')
+        .attr('height', node => (node.r * 2 + 20) + 'px')
+        .attr('href', node => `assets/artworks/${node.id}.jpg`)
+        .attr('clip-path', node => `url(#clip-${node.id})`);
+
       nodes.append('text')
-        .attr('clip-path', node => `url(#clip- ${node.id} )`)
+        .attr('clip-path', node => `url(#clip-${node.id})`)
         .selectAll('tspan')
-        .data(node => node.id.split(' '))
+        .data(node => node.data.name.split(' '))
         .enter()
         .append('tspan')
         .attr('x', 0)
