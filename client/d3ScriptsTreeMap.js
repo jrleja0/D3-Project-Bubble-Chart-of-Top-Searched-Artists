@@ -64,8 +64,8 @@ const makeTreeMap = () => {
       .data(node => node.data.name.split(' '))
       .enter()
       .append('tspan')
-      .attr('x', 4)
-      .attr('y', (nameData, i) => 15 + i * 10)
+      .attr('x', 45)
+      .attr('y', (nameData, i) => 15 + i * 15)
       .text(nameData => nameData);
 
   });
