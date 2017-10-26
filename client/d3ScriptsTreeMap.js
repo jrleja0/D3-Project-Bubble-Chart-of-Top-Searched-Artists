@@ -22,20 +22,54 @@ const makeTreeMap = () => {
   function(error, artistsData) {
     if (error) throw error;
 
-    const root = d3.hierarchy(artistsData)  //  ?? {children: artistsData} ??
-      .eachBefore(function(d) { d.data.id = (d.parent ? d.parent.data.id + "." : "") + d.data.name; })
-      .sum(sumBySize)
-      .sort(function(a, b) { return b.height - a.height || b.value - a.value; });
+    const root = d3.hierarchy({children: artistsData})
+      .sum(data => (artistsData.length + 1) - data.rank)
+      .sort((a, b) => { return b.height - a.height || b.value - a.value; })
+      .each(node => {
+        if (node.data.name) {
+          node.id = node.data.name.split(' ').join('');
+        }
+      });
 
     treemap(root);
 
-    const cell = svg.selectAll("g")
-    .data(root.leaves())
-    .enter().append("g")
-      .attr("transform", function(d) { return "translate(" + d.x0 + "," + d.y0 + ")"; });
-    // ......
-    // ......
+    const nodes = svg.selectAll('g')
+      .data(root.leaves())
+      .enter()
+      .append('g')
+      .attr('class', 'node')
+      .attr('transform', node => `translate(${node.x0},${node.y0})`);
+
+    nodes.append('title')
+      .text(node => `#${node.data.rank}: ${node.data.name}`);
+
+    nodes.append('rect')
+      .attr('id', node => node.id)
+      .attr('width', node => (node.x1 - node.x0))
+      .attr('height', node => (node.y1 - node.y0))
+      .attr('fill', node => color(node.value));
+
+    nodes.append('clipPath')
+      .attr('id', node => 'clip-' + node.id)
+      .append('use')
+      .attr('href', node => '#' + node.id);
+
+    nodes.append('image');
+      //....
+      //....
+
+    nodes.append('text')
+      .attr('clip-path', node => `url(#clip-${node.id})`)
+      .selectAll('tspan')
+      .data(node => node.data.name.split(' '))
+      .enter()
+      .append('tspan')
+      .attr('x', 4)
+      .attr('y', (nameData, i) => 15 + i * 10)
+      .text(nameData => nameData);
 
   });
 
 };
+
+export default makeTreeMap;
