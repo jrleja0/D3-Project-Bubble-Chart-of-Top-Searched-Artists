@@ -47,16 +47,26 @@ const makeTreeMap = () => {
       .attr('id', node => node.id)
       .attr('width', node => (node.x1 - node.x0))
       .attr('height', node => (node.y1 - node.y0))
-      .attr('fill', node => color(node.value));
+      .attr('fill', node => color(node.value))
+      .each(node => {
+        node.largestSide = (node.x1 - node.x0) >= (node.y1 - node.y0) ?
+          'x' : 'y';
+      });
 
     nodes.append('clipPath')
       .attr('id', node => 'clip-' + node.id)
       .append('use')
       .attr('href', node => '#' + node.id);
 
-    nodes.append('image');
-      //....
-      //....
+    nodes.append('image')
+      .attr('x', node => { return node.largestSide === 'x' ? '0px' : -((node.x1 - node.x0) * 2.5 / 4) + 'px'; }) // approx. '-200px for largest rects'
+      .attr('y', node => { return node.largestSide === 'x' ? -((node.y1 - node.y0) * 2.5 / 4) + 'px' : '0px'; }) // approx. '-200px'
+      .attr('width', node => { return node.largestSide === 'x' ?
+        (node.x1 - node.x0) + 'px' : (node.x1 - node.x0) * 2.5 + 'px'; })
+      .attr('height', node => { return node.largestSide === 'x' ?
+        (node.y1 - node.y0) * 2.5 + 'px' : (node.y1 - node.y0) + 'px'; })
+      .attr('href', node => `assets/artworks/${node.id}.jpg`)
+      .attr('clip-path', node => `url(#clip-${node.id})`);
 
     nodes.append('text')
       .attr('clip-path', node => `url(#clip-${node.id})`)
