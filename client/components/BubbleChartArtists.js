@@ -1,5 +1,6 @@
 import React from 'react';
 import makeChart from '../d3Scripts';
+import makeTreeMap from '../d3ScriptsTreeMap';
 
 /*///
  COMPONENT
@@ -7,7 +8,8 @@ import makeChart from '../d3Scripts';
 class Main extends React.Component {
 
   componentDidMount() {
-    makeChart();
+    //makeChart();
+    makeTreeMap();
   }
 
   render() {
