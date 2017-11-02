@@ -17,4 +17,17 @@ body {
       margin-bottom: 0;
     }
 
+    /*///
+     D3 Components
+    *////
+
+    tspan::-moz-selection {
+      background-color: $light-blue;
+      fill: black;
+    }
+    tspan::selection {
+      background-color: $light-blue;
+      fill: black;
+    }
+
   }

@@ -51,6 +51,7 @@ const makeTreeMap = () => {
       .each(node => {
         node.largestSide = (node.x1 - node.x0) >= (node.y1 - node.y0) ?
           'x' : 'y';
+          console.log('largestSide', node.id, node.largestSide);
       });
 
     nodes.append('clipPath')
@@ -59,17 +60,19 @@ const makeTreeMap = () => {
       .attr('href', node => '#' + node.id);
 
     nodes.append('image')
-      .attr('x', node => { return node.largestSide === 'x' ? '0px' : -((node.x1 - node.x0) * 2.5 / 4) + 'px'; }) // approx. '-200px for largest rects'
-      .attr('y', node => { return node.largestSide === 'x' ? -((node.y1 - node.y0) * 2.5 / 4) + 'px' : '0px'; }) // approx. '-200px'
-      .attr('width', node => { return node.largestSide === 'x' ?
-        (node.x1 - node.x0) + 'px' : (node.x1 - node.x0) * 2.5 + 'px'; })
-      .attr('height', node => { return node.largestSide === 'x' ?
-        (node.y1 - node.y0) * 2.5 + 'px' : (node.y1 - node.y0) + 'px'; })
+      .attr('x', 0)
+      .attr('y', 0)
+      .attr('width', node => (node.largestSide === 'x' ? node.x1 - node.x0 : undefined))
+      .attr('height', node => (node.largestSide === 'y' ? node.y1 - node.y0 : undefined))
       .attr('href', node => `assets/artworks/${node.id}.jpg`)
       .attr('clip-path', node => `url(#clip-${node.id})`);
 
     nodes.append('text')
       .attr('clip-path', node => `url(#clip-${node.id})`)
+      .attr('fill', node => {
+        const namesFontBlack = ['Banksy', 'KAWS', 'TakashiMurakami'];
+        return namesFontBlack.indexOf(node.id) !== -1 ? 'black' : 'white';
+      })
       .selectAll('tspan')
       .data(node => node.data.name.split(' '))
       .enter()
