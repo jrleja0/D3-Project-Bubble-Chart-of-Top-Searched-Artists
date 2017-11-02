@@ -8,7 +8,7 @@ const Main = (props) => {
   return (
     <div>
       <div>
-        <h3>Bubble Chart of Top Searched Artists</h3>
+        <h1>Top 20 Most Searched Artists, Sept 2017</h1>
       </div>
       {props.children}
       <div>

@@ -67,6 +67,14 @@ const makeTreeMap = () => {
       .attr('href', node => `assets/artworks/${node.id}.jpg`)
       .attr('clip-path', node => `url(#clip-${node.id})`);
 
+    nodes.append('text')
+      .attr('class', 'artist-rank')
+      .attr('fill', 'rgba(5, 193, 34, 0)') // $green-bold-rgba0;
+      .attr('x', node => (node.x1 - node.x0) / 2)
+      .attr('y', node => (node.data.rank > 4 ? (node.y1 - node.y0) / 2 + 20 : (node.y1 - node.y0) / 2 + 30))
+      .attr('font-size', node => (node.data.rank > 4 ? 400 / (node.data.rank / 2.5) : 400 / 2.5))
+      .text(node => node.data.rank);
+
     nodes.append('a')
       .attr('href', node => 'https://www.google.com/search?q=' + node.data.name)
       .append('text')

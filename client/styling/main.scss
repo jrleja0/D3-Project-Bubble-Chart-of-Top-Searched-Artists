@@ -3,6 +3,7 @@
 *////
 
 body {
+  text-align: center;
 
   /*///
    MAIN (Footer) Styling
@@ -21,6 +22,14 @@ body {
      D3 Components
     *////
 
+    h1 {
+      font-size: 42px;
+    }
+
+    .chart-type {
+      font-size: 24px;
+    }
+
     tspan::-moz-selection {
       background-color: $light-blue;
       fill: black;
@@ -28,6 +37,13 @@ body {
     tspan::selection {
       background-color: $light-blue;
       fill: black;
+    }
+
+    g:hover {
+      .artist-rank {
+        transition: all 0.5s ease 0s;
+        fill: $green-bold;
+      }
     }
 
   }

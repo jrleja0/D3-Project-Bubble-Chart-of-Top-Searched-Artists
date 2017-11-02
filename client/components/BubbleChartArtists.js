@@ -15,7 +15,7 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <p>Top 20 Artists</p>
+        <p className="chart-type">Bubble Chart</p>
         <svg width="1200" height="1200" textAnchor="middle" />
       </div>
     );
