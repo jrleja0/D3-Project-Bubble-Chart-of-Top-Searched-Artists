@@ -1,5 +1,5 @@
 import React from 'react';
-import makeChart from '../d3Scripts';
+import makeBubbleChart from '../d3ScriptsBubbleChart';
 import makeTreeMap from '../d3ScriptsTreeMap';
 
 /*///
@@ -8,7 +8,7 @@ import makeTreeMap from '../d3ScriptsTreeMap';
 class Main extends React.Component {
 
   componentDidMount() {
-    //makeChart();
+    //makeBubbleChart();
     makeTreeMap();
   }
 

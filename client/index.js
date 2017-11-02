@@ -1,11 +1,11 @@
 import './styling/index.scss';
 import React from 'react';
 import ReactDOM from 'react-dom';
-import {Main, BubbleChartArtists} from './components';
+import {Main, D3Chart} from './components';
 
 ReactDOM.render(
     <Main>
-      <BubbleChartArtists />
+      <D3Chart />
     </Main>,
   document.getElementById('app')
 );
