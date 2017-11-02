@@ -67,7 +67,9 @@ const makeTreeMap = () => {
       .attr('href', node => `assets/artworks/${node.id}.jpg`)
       .attr('clip-path', node => `url(#clip-${node.id})`);
 
-    nodes.append('text')
+    nodes.append('a')
+      .attr('href', node => 'https://www.google.com/search?q=' + node.data.name)
+      .append('text')
       .attr('clip-path', node => `url(#clip-${node.id})`)
       .attr('fill', node => {
         const namesFontBlack = ['Banksy', 'KAWS', 'TakashiMurakami'];
