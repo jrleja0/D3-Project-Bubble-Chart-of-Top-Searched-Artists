@@ -22,6 +22,33 @@ body {
      D3 Components
     *////
 
+    svg {
+      margin: 0 auto;
+    }
+
+    button {
+      color: black;
+      background-color: $light-blue-rgba4;
+      border: 5px solid #6e6c6c;
+      outline-width: 0;
+      padding: 10px 16px;
+      margin: 2px 6px 14px 6px;
+      font-size: 18px;
+      line-height: 1.3333333;
+      border-radius: 6px;
+      -webkit-appearance: button;
+      cursor: pointer;
+    }
+
+    button:hover, .button-selected {
+      background-color: $light-blue;
+      border: 5px solid $blue-bold;
+    }
+
+    .chart-type-menu-buttons {
+      display: inline-block;
+    }
+
     h1 {
       font-size: 42px;
     }

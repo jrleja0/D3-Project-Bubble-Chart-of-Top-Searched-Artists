@@ -2,7 +2,7 @@ const d3 = require('d3');
 
 const makeTreeMap = () => {
 
-  const svg = d3.select('svg'),
+  const svg = d3.select('#svgTreeMap'),
   width = +svg.attr('width'),
   height = +svg.attr('height');
 
@@ -51,7 +51,6 @@ const makeTreeMap = () => {
       .each(node => {
         node.largestSide = (node.x1 - node.x0) >= (node.y1 - node.y0) ?
           'x' : 'y';
-          console.log('largestSide', node.id, node.largestSide);
       });
 
     nodes.append('clipPath')
