@@ -3,17 +3,17 @@
 *////
 
 // bold
-$green-bold: rgba(5, 193, 34, 1);
-$blue-bold: rgba(27, 30, 209, 1);
-$blue-lighter-bold: rgba(71, 73, 172, 1);
-$grey: rgba(110, 108, 108, 1);
+$green-bold: rgb(5, 193, 34);
+$blue-bold: rgb(27, 30, 209);
+$blue-lighter-bold: rgb(71, 73, 172);
+$grey: rgb(110, 108, 108);
 
 // dark
-$black-with-blue: rgba(1, 14, 35, 1);
+$black-with-blue: rgb(1, 14, 35);
 
 // light
-$light-blue: rgba(10, 234, 255, 1);
-$light-grey-with-blue: rgba(201, 207, 216, 1);
+$light-blue: rgb(10, 234, 255);
+$light-grey-with-blue: rgb(201, 207, 216);
 
 // translucent
 $light-blue-rgba4: rgba(10, 234, 255, 0.4);
@@ -22,11 +22,6 @@ $light-blue2-rgba6: rgba(0, 216, 255, 0.6);
 $blue-bold-rgba4: rgba(27, 30, 209, 0.4);
 $blue-bold-rgba8: rgba(27, 30, 209, 0.8);
 $grey-rgba4: rgba(110, 108, 108, 0.4);
-
-// clear
-$blue-bold-rgba0: rgba(27, 30, 209, 0);
-$green-bold-rgba0: rgba(5, 193, 34, 0);
-$grey-rgba0: rgba(110, 108, 108, 0);
 
 
 .main-font {

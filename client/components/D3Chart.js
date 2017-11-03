@@ -32,12 +32,14 @@ class Main extends React.Component {
   render() {
     return (
       <div>
-        <div className="chart-type-menu-buttons">
+        <p>Click on an artist's name to search for them on Google. Artist search data from <a href="http://www.artnet.com/artists/top-300-artists/">artnet</a>.
+        </p>
+        <div className="div-chart-type-menu-buttons">
+          <span className="span-display-as">Display as:</span>
           <button id="TreeMap" className="button-selected" onClick={this.handleClick}>Tree Map</button>
           <button id="BubbleChart" className="" onClick={this.handleClick}>Bubble Chart</button>
           <div className="line-horiz" />
         </div>
-        {/* <p className="chart-type">{this.state.chartType}</p> */}
         <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
         <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
       </div>

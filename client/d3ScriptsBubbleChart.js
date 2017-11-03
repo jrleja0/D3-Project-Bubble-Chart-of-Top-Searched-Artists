@@ -31,42 +31,56 @@ const makeChart = () => {
         .data(pack(root).leaves())
         .enter()
         .append('g')
-        .attr('class', 'node')
+        .attr('class', 'node-bubbleChart')
         .attr('transform', node => `translate(${node.x},${node.y})`);
 
       nodes.append('title')
         .text(node => `#${node.data.rank}: ${node.data.name}`);
 
       nodes.append('circle')
-        .attr('id', node => node.id)
+        .attr('id', node => node.id + '-bubbleChart')
         .attr('r', node => node.r)
         .style('fill', node => color(node.value));
 
       nodes.append('clipPath')
-        .attr('id', node => 'clip-' + node.id)
+        .attr('id', node => 'clip-bubbleChart-' + node.id)
         .append('use')
-        .attr('href', node => '#' + node.id);
+        .attr('href', node => `#${node.id}-bubbleChart`);
 
       nodes.append('image')
-        .attr('x', node => -(node.r + 10))
-        .attr('y', node => -(node.r + 10))
-        .attr('width', node => (node.r * 2 + 20) + 'px')
-        .attr('height', node => (node.r * 2 + 20) + 'px')
+        .attr('x', node => -(node.r * 1.6))
+        .attr('y', node => -(node.r * 1.6))
+        .attr('width', node => (node.r * 3.5) + 'px')
+        .attr('height', node => (node.r * 3.5) + 'px')
         .attr('href', node => `assets/artworks/${node.id}.jpg`)
-        .attr('clip-path', node => `url(#clip-${node.id})`);
+        .attr('clip-path', node => `url(#clip-bubbleChart-${node.id})`);
 
       nodes.append('text')
-        .attr('clip-path', node => `url(#clip-${node.id})`)
+        .attr('class', 'artist-rank')
+        .attr('fill', 'transparent')
+        .attr('x', 0)
+        .attr('y', 0)
+        .attr('font-size', node => (node.data.rank > 6 ? 400 / (node.data.rank / 2.5) : 400 / 2.5))
+        .text(node => node.data.rank);
+
+      nodes.append('a')
+        .attr('href', node => 'https://www.google.com/search?q=' + node.data.name)
+        .append('text')
+        .attr('clip-path', node => `url(#clip-bubbleChart-${node.id})`)
+        .attr('fill', node => {
+          const namesFontBlack = ['TakashiMurakami'];
+          return namesFontBlack.indexOf(node.id) !== -1 ? 'black' : 'white';
+        })
         .selectAll('tspan')
         .data(node => node.data.name.split(' '))
         .enter()
         .append('tspan')
         .attr('x', 0)
-        .attr('y', (nameData, i, fullNameData) => 15 + (i - fullNameData.length / 2) * 15)  //  for example, nameData = Pablo;  i = 0; and fullNameData = ["Pablo", "Picasso"];
+        .attr('y', (nameData, i, fullNameTSpans) => 15 + (i - fullNameTSpans.length / 2) * 15)  //  for example, nameData = Pablo;  i = 0; and fullNameData = ["Pablo", "Picasso"];
         .text(nameData => nameData);
 
-  });
-
+    }
+  );
 };
 
 export default makeChart;

@@ -7,31 +7,23 @@ body {
   background-color: $light-grey-with-blue;
 
   /*///
-   MAIN (Footer) Styling
+  D3 Components
   *////
 
-  .footer-text {
-    @extend .main-font;
-    background-color: $blue-bold-rgba8;
-    color: white;
-    font-size: 18px;
-    text-align: center;
-    margin-bottom: 0;
+  h1 {
+    font-size: 42px;
+    color: black;
   }
 
-  /*///
-    D3 Components
-  *////
-
-  svg {
-    margin: 0 auto;
-  }
-
-  .chart-type-menu-buttons {
+  .div-chart-type-menu-buttons {
     display: inline-block;
     position: relative;
     width: 100%;
     z-index: 1;
+  }
+
+  .span-display-as {
+    padding: 10px;
   }
 
   button {
@@ -64,7 +56,7 @@ body {
 
   .line-horiz {
     background-color: $blue-lighter-bold;
-    height: 30px;
+    height: 40px;
     margin-bottom: 4px;
     border: 5px solid black;
     border-bottom: 5px solid transparent;
@@ -73,13 +65,16 @@ body {
     top: -5px;
   }
 
-  h1 {
-    font-size: 42px;
-    color: black;
+  svg {
+    margin: 0 auto;
   }
 
-  .chart-type {
-    font-size: 24px;
+  g:hover {
+    .artist-rank {
+      transition: all 0.5s ease 0s;
+      fill: $green-bold;
+      cursor: default;
+    }
   }
 
   tspan::-moz-selection {
@@ -91,12 +86,20 @@ body {
     fill: black;
   }
 
-  g:hover {
+  /*///
+   MAIN (Footer) Styling
+  *////
 
-    .artist-rank {
-      transition: all 0.5s ease 0s;
-      fill: $green-bold;
-    }
+  .footer-text {
+    @extend .main-font;
+    background-color: $blue-bold-rgba8;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 6px;
+    margin-bottom: 0;
+    border: 5px solid black;
+    border-top: 5px solid transparent;
   }
 
 }
