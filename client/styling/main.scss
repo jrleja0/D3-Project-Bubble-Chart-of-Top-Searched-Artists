@@ -32,7 +32,7 @@ body {
       border: 5px solid #6e6c6c;
       outline-width: 0;
       padding: 10px 16px;
-      margin: 2px 6px 14px 6px;
+      margin: 2px 6px 0px 6px;
       font-size: 18px;
       line-height: 1.3333333;
       border-radius: 6px;
@@ -40,13 +40,33 @@ body {
       cursor: pointer;
     }
 
-    button:hover, .button-selected {
+    button:hover, {
       background-color: $light-blue;
       border: 5px solid $blue-bold;
     }
 
+    .button-selected, .button-selected:hover {
+      background-color: $blue-bold-rgba8;
+      border: 5px solid black;
+      border-bottom: 5px solid $blue-bold-rgba8;
+      color: white;
+    }
+
     .chart-type-menu-buttons {
       display: inline-block;
+    }
+
+    .line-vert {
+      background-color: $blue-bold-rgba8;
+      width: 10px;
+      height: 14px;
+    }
+
+    .line-horiz {
+      background-color: $blue-bold-rgba8;
+      height: 20px;
+      margin-bottom: 2px;
+      border-top: 5px solid black;
     }
 
     h1 {

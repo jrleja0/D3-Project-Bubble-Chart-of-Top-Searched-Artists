@@ -36,9 +36,11 @@ class Main extends React.Component {
           <button id="TreeMap" className="button-selected" onClick={this.handleClick}>Tree Map</button>
           <button id="BubbleChart" className="" onClick={this.handleClick}>Bubble Chart</button>
         </div>
+        {/* <div className="line-vert" /> */}
+        <div className="line-horiz" />
         {/* <p className="chart-type">{this.state.chartType}</p> */}
-          <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
-          <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
+        <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
+        <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
       </div>
     );
   }
