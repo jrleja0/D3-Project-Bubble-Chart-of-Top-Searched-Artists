@@ -36,8 +36,8 @@ body {
 
     button {
       color: black;
-      background-color: $light-blue-rgba4;
-      border: 5px solid $grey;
+      background-color: $light-blue-rgba6;
+      border: 5px solid black;
       border-bottom: 5px solid black;
       border-radius: 6px 6px 0 0;
       outline-width: 0;
@@ -52,7 +52,7 @@ body {
     button:hover, {
       background-color: $light-blue;
       border: 5px solid $blue-bold;
-      border-bottom: 5px solid $blue-bold-rgba4;
+      border-bottom: 5px solid $blue-lighter-bold;
     }
 
     .button-selected, .button-selected:hover {
