@@ -3,18 +3,103 @@
 *////
 
 body {
+  text-align: center;
+  background-color: $light-grey-with-blue;
+
+  /*///
+  D3 Components
+  *////
+
+  h1 {
+    font-size: 42px;
+    color: black;
+  }
+
+  .div-chart-type-menu-buttons {
+    display: inline-block;
+    position: relative;
+    width: 100%;
+    z-index: 1;
+  }
+
+  .span-display-as {
+    padding: 10px;
+  }
+
+  button {
+    color: black;
+    background-color: $light-blue-rgba6;
+    border: 5px solid black;
+    border-bottom: 5px solid black;
+    border-radius: 6px 6px 0 0;
+    outline-width: 0;
+    padding: 10px 16px;
+    margin: 2px 8px 0px 8px;
+    font-size: 18px;
+    line-height: 1.3333333;
+    -webkit-appearance: button;
+    cursor: pointer;
+  }
+
+  button:hover, {
+    background-color: $light-blue;
+    border: 5px solid $blue-bold;
+    border-bottom: 5px solid $blue-lighter-bold;
+  }
+
+  .button-selected, .button-selected:hover {
+    background-color: $blue-lighter-bold;
+    border: 5px solid black;
+    border-bottom: 5px solid $blue-lighter-bold;
+    color: white;
+  }
+
+  .line-horiz {
+    background-color: $blue-lighter-bold;
+    height: 40px;
+    margin-bottom: 4px;
+    border: 5px solid black;
+    border-bottom: 5px solid transparent;
+    z-index: -10;
+    position: relative;
+    top: -5px;
+  }
+
+  svg {
+    margin: 0 auto;
+  }
+
+  g:hover {
+    .artist-rank {
+      transition: all 0.5s ease 0s;
+      fill: $green-bold;
+      cursor: default;
+    }
+  }
+
+  tspan::-moz-selection {
+    background-color: $light-blue;
+    fill: black;
+  }
+  tspan::selection {
+    background-color: $light-blue;
+    fill: black;
+  }
 
   /*///
    MAIN (Footer) Styling
   *////
 
-    .footer-text {
-      @extend .main-font;
-      background-color: $blue-bold-rgba8;
-      color: white;
-      font-size: 18px;
-      text-align: center;
-      margin-bottom: 0;
-    }
-
+  .footer-text {
+    @extend .main-font;
+    background-color: $blue-bold-rgba8;
+    color: white;
+    font-size: 18px;
+    text-align: center;
+    padding: 6px;
+    margin-bottom: 0;
+    border: 5px solid black;
+    border-top: 5px solid transparent;
   }
+
+}

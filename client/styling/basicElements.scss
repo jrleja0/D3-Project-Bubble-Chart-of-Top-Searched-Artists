@@ -3,18 +3,30 @@
 *////
 
 // bold
+$green-bold: rgb(5, 193, 34);
+$blue-bold: rgb(27, 30, 209);
+$blue-lighter-bold: rgb(71, 73, 172);
+$grey: rgb(110, 108, 108);
 
 // dark
+$black-with-blue: rgb(1, 14, 35);
 
 // light
+$light-blue: rgb(10, 234, 255);
+$light-grey-with-blue: rgb(201, 207, 216);
 
 // translucent
-$light-bright-blue-rgba6: rgba(0, 216, 255, 0.6);
+$light-blue-rgba4: rgba(10, 234, 255, 0.4);
+$light-blue-rgba6: rgba(10, 234, 255, 0.6);
+$light-blue2-rgba6: rgba(0, 216, 255, 0.6);
+$blue-bold-rgba4: rgba(27, 30, 209, 0.4);
 $blue-bold-rgba8: rgba(27, 30, 209, 0.8);
+$grey-rgba4: rgba(110, 108, 108, 0.4);
+
 
 .main-font {
   font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
-  font-size: 14px;
+  font-size: 16px;
   line-height: 20px;
   color: black;
 }

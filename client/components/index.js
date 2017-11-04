@@ -1,2 +1,2 @@
 export {default as Main} from './Main';
-export {default as BubbleChartArtists} from './BubbleChartArtists';
+export {default as D3Chart} from './D3Chart';
