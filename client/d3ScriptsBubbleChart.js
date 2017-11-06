@@ -1,6 +1,7 @@
 const d3 = require('d3');
 
 const makeChart = () => {
+
   const svg = d3.select('#svgBubbleChart'),
     width = +svg.attr('width'),
     height = +svg.attr('height');
@@ -27,7 +28,7 @@ const makeChart = () => {
           }
         });
 
-      const nodes = svg.selectAll('.node')
+      const nodes = svg.selectAll('g')
         .data(pack(root).leaves())
         .enter()
         .append('g')

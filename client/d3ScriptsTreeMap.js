@@ -3,8 +3,8 @@ const d3 = require('d3');
 const makeTreeMap = () => {
 
   const svg = d3.select('#svgTreeMap'),
-  width = +svg.attr('width'),
-  height = +svg.attr('height');
+    width = +svg.attr('width'),
+    height = +svg.attr('height');
 
   const color = d3.scaleOrdinal(d3.schemeCategory20c);
 
