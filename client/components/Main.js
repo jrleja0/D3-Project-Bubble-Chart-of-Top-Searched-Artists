@@ -13,7 +13,7 @@ const Main = (props) => {
       {props.children}
       <div>
         <pre className="footer-text">
-          <span className="glyphicon glyphicon-wrench" aria-hidden="true" />  J R Leja Design NYC    |    Jasiu Leja    |    2017
+          <i className="fa fa-wrench" aria-hidden="true" />  J R Leja Design NYC    |    Jasiu Leja    |    2017
         </pre>
       </div>
     </div>
