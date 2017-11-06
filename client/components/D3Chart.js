@@ -43,9 +43,11 @@ class Main extends React.Component {
           <button id="PlainList" className="" onClick={this.handleClick}>Artist List</button>
           <div className="line-horiz" />
         </div>
-        <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
-        <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
-        <svg id="svgPlainList" width="600" height="2400" textAnchor="left" display="none" />
+        <div className="svg-container">
+          <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
+          <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
+          <svg id="svgPlainList" width="360" height="2400" textAnchor="left" display="none" />
+        </div>
       </div>
     );
   }

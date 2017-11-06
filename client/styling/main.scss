@@ -12,6 +12,7 @@ body {
 
   h1 {
     font-size: 42px;
+    line-height: 46px;
     color: black;
   }
 
@@ -63,6 +64,11 @@ body {
     z-index: -10;
     position: relative;
     top: -5px;
+  }
+
+  .svg-container {
+    width: 100%;
+    overflow: scroll;
   }
 
   svg {
