@@ -20,6 +20,7 @@ const createApp = () => {
 
   // static file-serving middleware
   app.use(express.static(path.join(__dirname, '..', 'public')));
+  app.use('/font-awesome', express.static(path.join(__dirname, '..', 'node_modules/font-awesome')));
 
   // 404 handling middleware
   app.use((req, res, next) => {

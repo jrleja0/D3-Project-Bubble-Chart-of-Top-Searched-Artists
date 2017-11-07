@@ -1,7 +1,7 @@
 {
-  "name": "D3-Project-Bubble-Chart-of-Top-Searched-Artists",
+  "name": "Top-Searched-Artists-D3-Visualization",
   "version": "1.0.0",
-  "description": "D3 Project - Bubble Chart of Top Searched Artists",
+  "description": "Top Searched Artists - D3 Visualization",
   "main": "index.js",
   "scripts": {
     "start": "node server",
@@ -16,6 +16,7 @@
     "body-parser": "^1.17.2",
     "d3": "^4.11.0",
     "express": "^4.14.1",
+    "font-awesome": "^4.7.0",
     "morgan": "^1.8.1",
     "prop-types": "^15.5.8",
     "react": "^15.4.2",

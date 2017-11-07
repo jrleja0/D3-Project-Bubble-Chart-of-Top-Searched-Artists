@@ -1,5 +1,6 @@
 import React from 'react';
 import makeBubbleChart from '../d3ScriptsBubbleChart';
+import makePlainList from '../d3ScriptsPlainList';
 import makeTreeMap from '../d3ScriptsTreeMap';
 
 /*///
@@ -14,6 +15,7 @@ class Main extends React.Component {
   componentDidMount() {
     makeTreeMap();
     makeBubbleChart();
+    makePlainList();
   }
 
   handleClick(event) {
@@ -38,10 +40,14 @@ class Main extends React.Component {
           <span className="span-display-as">Display as:</span>
           <button id="TreeMap" className="button-selected" onClick={this.handleClick}>Tree Map</button>
           <button id="BubbleChart" className="" onClick={this.handleClick}>Bubble Chart</button>
+          <button id="PlainList" className="" onClick={this.handleClick}>Artist List</button>
           <div className="line-horiz" />
         </div>
-        <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
-        <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
+        <div className="svg-container">
+          <svg id="svgTreeMap" width="1200" height="1200" textAnchor="middle" display="block" />
+          <svg id="svgBubbleChart" width="1200" height="1200" textAnchor="middle" display="none" />
+          <svg id="svgPlainList" width="360" height="2400" textAnchor="left" display="none" />
+        </div>
       </div>
     );
   }
