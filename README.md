@@ -1,4 +1,4 @@
-# D3 Project - Bubble Chart of Top Searched Artists
+# Top Searched Artists - D3 Visualization
 
 ## Deployed at
 
@@ -6,8 +6,8 @@ Currently in development. Not yet deployed.
 
 ## Description
 
-Bubble chart visualization using D3.js of the top 20 searched for visual artists on artnet.com in Sept 2017.
-http://www.artnet.com/artists/top-300-artists/
+Data visualizations using D3.js of the top 20 most searched visual artists on artnet.com in Sept 2017. Visualizations include: tree map, bubble chart, and plain list.
+Data from: http://www.artnet.com/artists/top-300-artists/
 
 ## Connect with Me
 
