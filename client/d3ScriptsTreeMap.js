@@ -60,10 +60,10 @@ const makeTreeMap = () => {
         .attr('href', node => `#${node.id}-treeMap`);
 
       nodes.append('image')
-        .attr('x', node => (node.largestSide === 'x' ? 0 : -70))
-        .attr('y', node => (node.largestSide === 'y' ? 0 : -70))
-        .attr('width', node => (node.largestSide === 'x' ? node.x1 - node.x0 + 20 : node.y1 - node.y0 + 20))
-        .attr('height', node => (node.largestSide === 'y' ? node.y1 - node.y0 + 20 : node.x1 - node.x0 + 20))
+        .attr('x', node => (node.largestSide === 'x' ? 0 : -((node.y1 - node.y0) - (node.x1 - node.x0)) / 2))
+        .attr('y', node => (node.largestSide === 'y' ? 0 : -((node.x1 - node.x0) - (node.y1 - node.y0)) / 2))
+        .attr('width', node => (node.largestSide === 'x' ? node.x1 - node.x0 + 10 : node.y1 - node.y0 + 10))
+        .attr('height', node => (node.largestSide === 'y' ? node.y1 - node.y0 + 10 : node.x1 - node.x0 + 10))
         .attr('xlink:href', node => `assets/artworks/${node.id}.jpg`)
         .attr('href', node => `assets/artworks/${node.id}.jpg`)
         .attr('clip-path', node => `url(#clip-treeMap-${node.id})`);
