@@ -23,9 +23,11 @@ const makePlainList = () => {
         .attr('y', node => 120 * +node.rank - 100)
         .attr('width', 100)
         .attr('height', 100)
+        .attr('xlink:href', node => `assets/artworks/${node.name.split(' ').join('')}.jpg`)
         .attr('href', node => `assets/artworks/${node.name.split(' ').join('')}.jpg`);
 
       nodes.append('a')
+        .attr('xlink:href', node => 'https://www.google.com/search?q=' + node.name)
         .attr('href', node => 'https://www.google.com/search?q=' + node.name)
         .append('text')
         .attr('x', 140)

@@ -56,13 +56,15 @@ const makeTreeMap = () => {
       nodes.append('clipPath')
         .attr('id', node => 'clip-treeMap-' + node.id)
         .append('use')
+        .attr('xlink:href', node => `#${node.id}-treeMap`)
         .attr('href', node => `#${node.id}-treeMap`);
 
       nodes.append('image')
-        .attr('x', 0)
-        .attr('y', 0)
-        .attr('width', node => (node.largestSide === 'x' ? node.x1 - node.x0 : undefined))
-        .attr('height', node => (node.largestSide === 'y' ? node.y1 - node.y0 : undefined))
+        .attr('x', node => (node.largestSide === 'x' ? 0 : -70))
+        .attr('y', node => (node.largestSide === 'y' ? 0 : -70))
+        .attr('width', node => (node.largestSide === 'x' ? node.x1 - node.x0 + 20 : node.y1 - node.y0 + 20))
+        .attr('height', node => (node.largestSide === 'y' ? node.y1 - node.y0 + 20 : node.x1 - node.x0 + 20))
+        .attr('xlink:href', node => `assets/artworks/${node.id}.jpg`)
         .attr('href', node => `assets/artworks/${node.id}.jpg`)
         .attr('clip-path', node => `url(#clip-treeMap-${node.id})`);
 
@@ -75,6 +77,7 @@ const makeTreeMap = () => {
         .text(node => node.data.rank);
 
       nodes.append('a')
+        .attr('xlink:href', node => 'https://www.google.com/search?q=' + node.data.name)
         .attr('href', node => 'https://www.google.com/search?q=' + node.data.name)
         .append('text')
         .attr('clip-path', node => `url(#clip-treeMap-${node.id})`)
