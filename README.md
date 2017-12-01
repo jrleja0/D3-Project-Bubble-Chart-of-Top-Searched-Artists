@@ -2,7 +2,7 @@
 
 ## Deployed at
 
-Currently in development. Not yet deployed.
+https://top-searched-artists-09-2017.herokuapp.com
 
 ## Description
 
