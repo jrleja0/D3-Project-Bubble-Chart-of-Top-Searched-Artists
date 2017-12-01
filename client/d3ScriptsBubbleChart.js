@@ -46,6 +46,7 @@ const makeChart = () => {
       nodes.append('clipPath')
         .attr('id', node => 'clip-bubbleChart-' + node.id)
         .append('use')
+        .attr('xlink:href', node => `#${node.id}-bubbleChart`)
         .attr('href', node => `#${node.id}-bubbleChart`);
 
       nodes.append('image')
@@ -53,6 +54,7 @@ const makeChart = () => {
         .attr('y', node => -(node.r * 1.6))
         .attr('width', node => (node.r * 3.5) + 'px')
         .attr('height', node => (node.r * 3.5) + 'px')
+        .attr('xlink:href', node => `assets/artworks/${node.id}.jpg`)
         .attr('href', node => `assets/artworks/${node.id}.jpg`)
         .attr('clip-path', node => `url(#clip-bubbleChart-${node.id})`);
 
@@ -65,6 +67,7 @@ const makeChart = () => {
         .text(node => node.data.rank);
 
       nodes.append('a')
+        .attr('xlink:href', node => 'https://www.google.com/search?q=' + node.data.name)
         .attr('href', node => 'https://www.google.com/search?q=' + node.data.name)
         .append('text')
         .attr('clip-path', node => `url(#clip-bubbleChart-${node.id})`)
